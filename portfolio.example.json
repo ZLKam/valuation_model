@@ -1,0 +1,7 @@
+{
+  "account_value": 100000.0,
+  "risk_per_trade": 0.01,
+  "max_position_pct": 0.15,
+  "max_sector_pct": 0.35,
+  "positions": []
+}
