@@ -687,7 +687,10 @@ class OptionSnapshotTests(unittest.TestCase):
         self.assertEqual(snapshot["marketable_calls"], 1)
         self.assertEqual(snapshot["marketable_otm_puts"], 1)
         self.assertEqual(snapshot["marketable_otm_calls"], 1)
-        self.assertEqual(snapshot["chains"][self.expiration]["puts"][0]["contractSymbol"], "QQQP90")
+        stored_put = snapshot["chains"][self.expiration]["puts"][0]
+        self.assertEqual(stored_put["contractSymbol"], "QQQP90")
+        self.assertNotIn("lastTradeDate", stored_put)
+        self.assertNotIn("gamma", stored_put)
         self.assertEqual(result["quote_basis_used"], "live")
         self.assertEqual(result["marketable_otm_put_count"], 1)
 
@@ -787,6 +790,21 @@ class OptionSnapshotTests(unittest.TestCase):
         self.assertEqual(replay["risk_free_rate"], 0.046)
         self.assertEqual(replay["spot"], live_result["spot"])
         self.assertIn("not currently executable", replay["spot_warning"])
+
+    def test_replay_ignores_listed_expirations_that_were_not_captured(self):
+        self.capture_snapshot()
+        snapshot = self.analyzer.snapshot_store.load_latest("QQQ")
+        snapshot["listed_expirations"].append((self.capture_date + datetime.timedelta(days=40)).isoformat())
+        self.analyzer.snapshot_store.save(snapshot)
+
+        with patch("valuation.options.yf.Ticker", side_effect=AssertionError("replay must remain offline")):
+            replay = self.analyzer.recommend_short_puts(
+                "QQQ", self.put_preferences, quote_basis=QUOTE_BASIS_PREVIOUS_SESSION
+            )
+
+        self.assertNotIn("error", replay)
+        self.assertEqual(replay["scanned_expirations"], [self.expiration])
+        self.assertEqual(replay["recommendations"][0]["contract_symbol"], "QQQP90")
 
     def test_auto_off_hours_replays_snapshot_for_both_put_and_call_legs(self):
         self.capture_snapshot()

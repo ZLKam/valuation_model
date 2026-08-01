@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "description": "Curated liquid US-listed underlyings for automated regular-session option snapshots. Inclusion is data coverage, not a trade recommendation.",
+  "categories": [
+    {
+      "name": "Broad market ETFs",
+      "symbols": [
+        {"symbol": "SPY", "name": "SPDR S&P 500 ETF Trust"},
+        {"symbol": "QQQ", "name": "Invesco QQQ Trust"},
+        {"symbol": "IWM", "name": "iShares Russell 2000 ETF"},
+        {"symbol": "DIA", "name": "SPDR Dow Jones Industrial Average ETF"}
+      ]
+    },
+    {
+      "name": "Technology and semiconductor ETFs",
+      "symbols": [
+        {"symbol": "SMH", "name": "VanEck Semiconductor ETF"},
+        {"symbol": "SOXX", "name": "iShares Semiconductor ETF"},
+        {"symbol": "XLK", "name": "Technology Select Sector SPDR Fund"},
+        {"symbol": "XLC", "name": "Communication Services Select Sector SPDR Fund"}
+      ]
+    },
+    {
+      "name": "Sector ETFs",
+      "symbols": [
+        {"symbol": "XLF", "name": "Financial Select Sector SPDR Fund"},
+        {"symbol": "XLE", "name": "Energy Select Sector SPDR Fund"},
+        {"symbol": "XLV", "name": "Health Care Select Sector SPDR Fund"},
+        {"symbol": "XLI", "name": "Industrial Select Sector SPDR Fund"},
+        {"symbol": "XLY", "name": "Consumer Discretionary Select Sector SPDR Fund"},
+        {"symbol": "XLP", "name": "Consumer Staples Select Sector SPDR Fund"},
+        {"symbol": "XLU", "name": "Utilities Select Sector SPDR Fund"},
+        {"symbol": "VNQ", "name": "Vanguard Real Estate ETF"},
+        {"symbol": "XBI", "name": "SPDR S&P Biotech ETF"}
+      ]
+    },
+    {
+      "name": "Macro and alternative ETFs",
+      "symbols": [
+        {"symbol": "TLT", "name": "iShares 20+ Year Treasury Bond ETF"},
+        {"symbol": "HYG", "name": "iShares High Yield Corporate Bond ETF"},
+        {"symbol": "GLD", "name": "SPDR Gold Shares"},
+        {"symbol": "SLV", "name": "iShares Silver Trust"},
+        {"symbol": "USO", "name": "United States Oil Fund"},
+        {"symbol": "IBIT", "name": "iShares Bitcoin Trust ETF"},
+        {"symbol": "ARKK", "name": "ARK Innovation ETF"}
+      ]
+    },
+    {
+      "name": "Semiconductors",
+      "symbols": [
+        {"symbol": "NVDA", "name": "NVIDIA"},
+        {"symbol": "AMD", "name": "Advanced Micro Devices"},
+        {"symbol": "AVGO", "name": "Broadcom"},
+        {"symbol": "TSM", "name": "Taiwan Semiconductor Manufacturing ADR"},
+        {"symbol": "ASML", "name": "ASML Holding ADR"},
+        {"symbol": "QCOM", "name": "Qualcomm"},
+        {"symbol": "INTC", "name": "Intel"},
+        {"symbol": "AMAT", "name": "Applied Materials"},
+        {"symbol": "LRCX", "name": "Lam Research"},
+        {"symbol": "KLAC", "name": "KLA"},
+        {"symbol": "MRVL", "name": "Marvell Technology"},
+        {"symbol": "ARM", "name": "Arm Holdings ADR"},
+        {"symbol": "TXN", "name": "Texas Instruments"},
+        {"symbol": "ADI", "name": "Analog Devices"},
+        {"symbol": "MCHP", "name": "Microchip Technology"},
+        {"symbol": "ON", "name": "onsemi"},
+        {"symbol": "NXPI", "name": "NXP Semiconductors"},
+        {"symbol": "MPWR", "name": "Monolithic Power Systems"}
+      ]
+    },
+    {
+      "name": "Memory and storage",
+      "symbols": [
+        {"symbol": "MU", "name": "Micron Technology"},
+        {"symbol": "SNDK", "name": "Sandisk"},
+        {"symbol": "WDC", "name": "Western Digital"},
+        {"symbol": "STX", "name": "Seagate Technology"}
+      ]
+    },
+    {
+      "name": "Mega-cap and liquid leaders",
+      "symbols": [
+        {"symbol": "AAPL", "name": "Apple"},
+        {"symbol": "MSFT", "name": "Microsoft"},
+        {"symbol": "AMZN", "name": "Amazon"},
+        {"symbol": "META", "name": "Meta Platforms"},
+        {"symbol": "GOOGL", "name": "Alphabet Class A"},
+        {"symbol": "TSLA", "name": "Tesla"}
+      ]
+    }
+  ]
+}

@@ -15,6 +15,7 @@ logger = logging.getLogger(__name__)
 
 SNAPSHOT_SCHEMA_VERSION = 1
 DEFAULT_SNAPSHOT_DIR = Path(__file__).resolve().parent.parent / ".cache" / "option_snapshots"
+BUNDLED_SNAPSHOT_DIR = Path(__file__).resolve().parent.parent / "data" / "option_snapshots"
 
 
 def _json_safe(value: Any) -> Any:
@@ -68,8 +69,24 @@ def _timestamp(value: Any) -> datetime.datetime | None:
 class OptionSnapshotStore:
     """Save and retrieve the latest aligned regular-session chain per symbol."""
 
-    def __init__(self, root: str | Path | None = None):
+    def __init__(
+        self,
+        root: str | Path | None = None,
+        *,
+        fallback_roots: list[str | Path] | tuple[str | Path, ...] | None = None,
+    ):
         self.root = Path(root) if root is not None else DEFAULT_SNAPSHOT_DIR
+        if fallback_roots is None:
+            fallback_roots = (BUNDLED_SNAPSHOT_DIR,) if root is None else ()
+
+        read_roots = [self.root, *(Path(item) for item in fallback_roots)]
+        self.read_roots: list[Path] = []
+        seen: set[str] = set()
+        for candidate in read_roots:
+            identity = str(candidate.resolve(strict=False)).casefold()
+            if identity not in seen:
+                self.read_roots.append(candidate)
+                seen.add(identity)
 
     def save(self, snapshot: dict[str, Any]) -> Path:
         payload = _json_safe(snapshot)
@@ -96,7 +113,12 @@ class OptionSnapshotStore:
         temporary = symbol_dir / f".{market_date}.{uuid.uuid4().hex}.tmp"
         try:
             temporary.write_text(
-                json.dumps(payload, indent=2, sort_keys=True, allow_nan=False),
+                json.dumps(
+                    payload,
+                    sort_keys=True,
+                    allow_nan=False,
+                    separators=(",", ":"),
+                ) + "\n",
                 encoding="utf-8",
             )
             temporary.replace(target)
@@ -108,27 +130,27 @@ class OptionSnapshotStore:
         return target
 
     def load_latest(self, symbol: str) -> dict[str, Any] | None:
-        symbol_dir = self.root / _safe_symbol(symbol)
-        if not symbol_dir.exists():
-            return None
-
         candidates: list[tuple[datetime.datetime, dict[str, Any]]] = []
-        for path in symbol_dir.glob("*.json"):
-            try:
-                payload = json.loads(path.read_text(encoding="utf-8"))
-            except (OSError, ValueError, TypeError) as exc:
-                logger.warning("Could not read option snapshot %s: %s", path, exc)
+        for root in self.read_roots:
+            symbol_dir = root / _safe_symbol(symbol)
+            if not symbol_dir.exists():
                 continue
-            captured_at = _timestamp(payload.get("captured_at"))
-            if (
-                payload.get("schema_version") != SNAPSHOT_SCHEMA_VERSION
-                or str(payload.get("symbol") or "").strip().upper() != symbol.strip().upper()
-                or captured_at is None
-                or not isinstance(payload.get("chains"), dict)
-                or not payload.get("chains")
-            ):
-                continue
-            candidates.append((captured_at, payload))
+            for path in symbol_dir.glob("*.json"):
+                try:
+                    payload = json.loads(path.read_text(encoding="utf-8"))
+                except (OSError, ValueError, TypeError) as exc:
+                    logger.warning("Could not read option snapshot %s: %s", path, exc)
+                    continue
+                captured_at = _timestamp(payload.get("captured_at"))
+                if (
+                    payload.get("schema_version") != SNAPSHOT_SCHEMA_VERSION
+                    or str(payload.get("symbol") or "").strip().upper() != symbol.strip().upper()
+                    or captured_at is None
+                    or not isinstance(payload.get("chains"), dict)
+                    or not payload.get("chains")
+                ):
+                    continue
+                candidates.append((captured_at, payload))
 
         if not candidates:
             return None

@@ -33,6 +33,18 @@ _VOLATILITY_PROXIES = {
     "IWM": ("^RVX", "Russell 2000"),
     "DIA": ("^VXD", "Dow Jones Industrial Average"),
 }
+_SNAPSHOT_CONTRACT_FIELDS = (
+    "contractSymbol",
+    "expiration",
+    "dte",
+    "strike",
+    "bid",
+    "ask",
+    "volume",
+    "openInterest",
+    "impliedVolatility",
+    "ivUsed",
+)
 
 
 def _finite_float(value, default=0.0):
@@ -41,6 +53,36 @@ def _finite_float(value, default=0.0):
     except (TypeError, ValueError):
         return default
     return result if math.isfinite(result) else default
+
+
+def _replayable_snapshot_contract(contract: dict, aligned_spot: float, option_type: str) -> bool:
+    if aligned_spot <= 0:
+        return True
+    strike = _finite_float(contract.get("strike"), -1.0)
+    bid = _finite_float(contract.get("bid"), -1.0)
+    ask = _finite_float(contract.get("ask"), -1.0)
+    is_otm = strike < aligned_spot if option_type == "puts" else strike > aligned_spot
+    return is_otm and bid >= 0.05 and ask >= bid
+
+
+def compact_snapshot_chains(chains: dict, spot: float | None = None) -> dict:
+    """Keep replay-required fields and, when possible, only usable OTM quotes."""
+    aligned_spot = _finite_float(spot, -1.0)
+    compacted: dict[str, dict[str, list[dict]]] = {}
+    for expiration, sides in (chains or {}).items():
+        if not isinstance(sides, dict):
+            continue
+        compacted_sides: dict[str, list[dict]] = {}
+        for option_type in ("puts", "calls"):
+            contracts = sides.get(option_type) or []
+            compacted_sides[option_type] = [
+                {field: contract.get(field) for field in _SNAPSHOT_CONTRACT_FIELDS if field in contract}
+                for contract in contracts
+                if isinstance(contract, dict)
+                and _replayable_snapshot_contract(contract, aligned_spot, option_type)
+            ]
+        compacted[str(expiration)] = compacted_sides
+    return compacted
 
 
 def _market_date() -> datetime.date:
@@ -662,7 +704,9 @@ class OptionsAnalyzer:
 
         selected_expirations: list[tuple[str, int]] = []
         chains = snapshot.get("chains") or {}
-        expiration_universe = snapshot.get("listed_expirations") or list(chains)
+        # A provider may list more expirations than were deliberately captured.
+        # Replay only the aligned chains that actually exist in this snapshot.
+        expiration_universe = snapshot.get("captured_expirations") or list(chains)
         for expiration in expiration_universe:
             try:
                 expiry = datetime.date.fromisoformat(str(expiration))
@@ -785,6 +829,7 @@ class OptionsAnalyzer:
         *,
         include_calls: bool = False,
         quote_basis: str = QUOTE_BASIS_LIVE,
+        expiration_limit: int = 12,
     ) -> dict:
         """Scan and rank puts from either a live chain or an aligned saved snapshot."""
         symbol = ticker_symbol.strip().upper()
@@ -893,8 +938,12 @@ class OptionsAnalyzer:
                 "error": f"No listed expirations fall inside {prefs.min_dte}-{prefs.max_dte} DTE.",
             }
 
+        try:
+            bounded_expiration_limit = max(1, min(int(expiration_limit), 24))
+        except (TypeError, ValueError):
+            bounded_expiration_limit = 12
         selected_expirations.sort(key=lambda item: (abs(item[1] - prefs.target_dte), item[1]))
-        selected_expirations = selected_expirations[:12]
+        selected_expirations = selected_expirations[:bounded_expiration_limit]
         selected_expirations.sort(key=lambda item: item[1])
         contracts: list[dict] = []
         all_call_contracts: list[dict] = []
@@ -980,7 +1029,8 @@ class OptionsAnalyzer:
                 "marketable_otm_calls": marketable_otm_calls,
                 "failed_expirations": failed_expirations,
                 "listed_expirations": expirations,
-                "chains": chains,
+                "captured_expirations": list(chains),
+                "chains": compact_snapshot_chains(chains, spot),
             }
             try:
                 self.snapshot_store.save(snapshot)

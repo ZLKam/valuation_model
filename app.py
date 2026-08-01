@@ -18,6 +18,12 @@ from valuation.option_scoring import (
     BullishComboPreferences,
     ShortPutPreferences,
 )
+from valuation.option_universe import (
+    load_option_snapshot_status,
+    load_option_universe,
+    option_universe_labels,
+    option_universe_symbols,
+)
 from valuation.options import (
     QUOTE_BASIS_AUTO,
     QUOTE_BASIS_LIVE,
@@ -55,6 +61,9 @@ OPTION_QUOTE_BASIS_LABELS = {
 }
 
 PORTFOLIO_SESSION_KEY = "northstar_portfolio"
+OPTION_UNIVERSE = load_option_universe()
+OPTION_UNIVERSE_SYMBOLS = option_universe_symbols()
+OPTION_UNIVERSE_LABELS = option_universe_labels()
 
 
 def get_session_portfolio() -> dict:
@@ -66,6 +75,55 @@ def get_session_portfolio() -> dict:
 
 def set_session_portfolio(portfolio: dict) -> None:
     st.session_state[PORTFOLIO_SESSION_KEY] = normalize_portfolio(portfolio)
+
+
+def option_ticker_label(symbol: Any) -> str:
+    normalized = str(symbol or "").strip().upper()
+    return OPTION_UNIVERSE_LABELS.get(normalized, f"{normalized} — Custom ticker")
+
+
+def scheduled_option_ticker(container: Any, *, key: str) -> str:
+    selected = container.selectbox(
+        "Underlying ticker",
+        OPTION_UNIVERSE_SYMBOLS,
+        index=OPTION_UNIVERSE_SYMBOLS.index("QQQ"),
+        format_func=option_ticker_label,
+        accept_new_options=True,
+        key=key,
+        help=(
+            f"Choose one of {len(OPTION_UNIVERSE_SYMBOLS)} automatically refreshed underlyings, "
+            "or type a custom US-listed ticker. Custom tickers still need an in-session scan before off-hours replay."
+        ),
+    )
+    return str(selected or "").strip().upper()
+
+
+def render_option_snapshot_coverage() -> None:
+    status = load_option_snapshot_status()
+    summary = status.get("summary") if isinstance(status, dict) else {}
+    summary = summary if isinstance(summary, dict) else {}
+    available = int(summary.get("available") or 0)
+    generated_at = status.get("generated_at") if isinstance(status, dict) else None
+    if generated_at:
+        try:
+            refreshed = pd.to_datetime(generated_at, utc=True).strftime("%Y-%m-%d %H:%M UTC")
+        except (TypeError, ValueError):
+            refreshed = str(generated_at)
+        coverage_text = (
+            f"Automatic regular-session snapshots: {available}/{len(OPTION_UNIVERSE_SYMBOLS)} currently available · "
+            f"status published {refreshed}."
+        )
+    else:
+        coverage_text = (
+            f"Automatic regular-session refresh is configured for {len(OPTION_UNIVERSE_SYMBOLS)} curated underlyings. "
+            "Coverage will appear after the first weekday market-session workflow succeeds."
+        )
+    st.caption(coverage_text)
+    with st.expander("Scheduled ticker coverage"):
+        st.caption("Coverage provides quote replay only; inclusion is not a trade recommendation.")
+        for category in OPTION_UNIVERSE["categories"]:
+            tickers = ", ".join(entry["symbol"] for entry in category["symbols"])
+            st.markdown(f"**{category['name']}** — {tickers}")
 
 
 st.markdown(
@@ -1005,12 +1063,7 @@ def render_short_puts() -> None:
 
     with st.form("short_put_scan_form"):
         first_row = st.columns([1.35, 1.25, 0.75])
-        ticker = first_row[0].text_input(
-            "Underlying ticker",
-            value="QQQ",
-            key="short_put_ticker",
-            help="The first release supports one cash-secured short put at a time.",
-        ).strip().upper()
+        ticker = scheduled_option_ticker(first_row[0], key="short_put_ticker_v2")
         quote_basis_label = first_row[1].selectbox(
             "Quote basis",
             list(OPTION_QUOTE_BASIS_LABELS),
@@ -1375,7 +1428,7 @@ def render_bullish_combo() -> None:
 
     with st.form("bullish_combo_scan_form"):
         first_row = st.columns([1.35, 1.25, 0.75])
-        ticker = first_row[0].text_input("Underlying ticker", value="QQQ", key="combo_ticker").strip().upper()
+        ticker = scheduled_option_ticker(first_row[0], key="combo_ticker_v2")
         quote_basis_label = first_row[1].selectbox(
             "Quote basis",
             list(OPTION_QUOTE_BASIS_LABELS),
@@ -1756,6 +1809,7 @@ def render_bullish_combo() -> None:
 
 
 def render_options() -> None:
+    render_option_snapshot_coverage()
     short_put_tab, bullish_combo_tab = st.tabs(["Short put only", "Put premium → long call"])
     with short_put_tab:
         render_short_puts()

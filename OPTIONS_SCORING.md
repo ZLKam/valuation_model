@@ -88,12 +88,36 @@ Both option scanners expose three quote bases:
 A successful regular-session scan with at least one marketable **OTM** put and no
 failed selected expirations saves the
 spot, historical volatility, dividend yield, risk-free rate, IV context, and
-both put and call chains under `.cache/options_snapshots/<symbol>/`. The daily
+both put and call chains under `.cache/option_snapshots/<symbol>/`. The daily
 file is replaced by the newest successful scan so every saved dataset remains
 internally aligned. Snapshot DTE is calculated from the captured market date,
 not the replay date. If a later replay asks for an expiration that was not
 captured by that scan, the tool requests a matching live-session scan instead
 of silently ranking an incomplete window.
+
+### Scheduled cloud snapshots
+
+`.github/workflows/refresh-option-snapshots.yml` runs at 13:17
+`America/New_York` each weekday and splits the curated universe in
+`data/option_universe.json` across six batches. The current universe contains 52
+unique underlyings, including broad and sector ETFs, SMH and SOXX, major
+semiconductor companies, MU/SNDK/WDC/STX memory and storage names, macro and
+alternative ETFs, and liquid mega-cap stocks.
+
+Each scheduled scan targets 14-75 DTE and captures up to six expirations nearest
+the balanced 38-DTE target. Only marketable OTM contracts and replay-required
+quote fields are persisted. A
+publication step independently checks the schema, regular-session provenance,
+aligned positive spot, complete selected-expiration fetch, and existence of a
+marketable OTM put. It then writes one rolling
+`data/option_snapshots/<symbol>/latest.json` file. A failed daily attempt updates
+the coverage status but cannot replace a prior valid file.
+
+The default snapshot store reads both the local runtime cache and the bundled
+GitHub-managed directory, choosing the newest valid capture. The scheduled
+files therefore survive Streamlit restarts after the data commit redeploys the
+app. Custom symbols remain supported but are not durable unless they are added
+to the scheduled universe.
 
 Snapshot recommendations are historical planning results, not executable
 quotes. The UI displays the capture time and labels the bid/ask data as stale.
@@ -231,6 +255,7 @@ visible even when range-based IV rank is unavailable.
 pip install -r requirements.txt
 streamlit run app.py
 python -m unittest discover -s tests -v
+python scripts/refresh_option_snapshots.py --dry-run --batch-index 0 --batch-count 6
 python main.py --ticker QQQ --bull-combo
 python main.py --ticker QQQ --options --quote-basis previous_session
 ```

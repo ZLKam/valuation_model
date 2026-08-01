@@ -1,0 +1,97 @@
+name: refresh option snapshots
+
+on:
+  schedule:
+    - cron: "17 13 * * 1-5"
+      timezone: "America/New_York"
+  workflow_dispatch:
+
+concurrency:
+  group: option-snapshot-refresh
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  fetch:
+    name: fetch batch ${{ matrix.batch }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        batch: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Fetch aligned regular-session snapshots
+        run: >-
+          python scripts/refresh_option_snapshots.py
+          --batch-index ${{ matrix.batch }}
+          --batch-count 6
+          --expiration-limit 6
+          --attempts 2
+          --output generated/option_snapshots
+          --status-output generated/status/batch-${{ matrix.batch }}.json
+      - name: Upload batch results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: option-snapshots-${{ matrix.batch }}
+          path: generated/
+          if-no-files-found: warn
+          retention-days: 2
+
+  publish:
+    name: publish validated snapshots
+    if: always()
+    needs: fetch
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Download batch results
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: option-snapshots-*
+          path: collected
+          merge-multiple: true
+      - name: Publish rolling snapshots and status
+        run: >-
+          python scripts/publish_option_snapshots.py
+          --input collected
+          --destination data/option_snapshots
+          --universe data/option_universe.json
+          --status-output data/option_snapshot_status.json
+      - name: Commit refreshed market data
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/option_snapshots data/option_snapshot_status.json
+          if git diff --cached --quiet; then
+            echo "No validated snapshot changes to publish."
+          else
+            git commit -m "chore(data): refresh option snapshots [skip ci]"
+            git push
+          fi

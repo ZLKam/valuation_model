@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "generated_at": null,
+  "state": "awaiting_first_scheduled_run",
+  "summary": {
+    "configured": 52,
+    "attempted": 0,
+    "saved": 0,
+    "failed": 0
+  },
+  "symbols": {}
+}
