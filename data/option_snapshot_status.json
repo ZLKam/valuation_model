@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-04T19:40:32.408696+00:00",
+  "generated_at": "2026-09-07T20:37:22.812765+00:00",
   "schema_version": 1,
-  "state": "complete",
+  "state": "no_new_snapshots",
   "summary": {
     "attempted": 52,
     "available": 52,
     "configured": 52,
-    "failed": 0,
-    "published_this_run": 52,
-    "saved": 52
+    "failed": 52,
+    "published_this_run": 0,
+    "saved": 0
   },
   "symbols": {
     "AAPL": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Mega-cap and liquid leaders",
-      "last_attempt_at": "2026-09-04T19:39:44.168299+00:00",
+      "last_attempt_at": "2026-09-07T20:36:38.317187+00:00",
       "last_snapshot_at": "2026-09-04T19:39:44.154492+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 73,
@@ -26,11 +26,11 @@
       "symbol": "AAPL"
     },
     "ADI": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:37:49.917811+00:00",
+      "last_attempt_at": "2026-09-07T20:35:29.331119+00:00",
       "last_snapshot_at": "2026-09-04T19:37:49.914142+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 56,
@@ -40,11 +40,11 @@
       "symbol": "ADI"
     },
     "AMAT": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:37:47.749345+00:00",
+      "last_attempt_at": "2026-09-07T20:35:29.331119+00:00",
       "last_snapshot_at": "2026-09-04T19:37:47.729093+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 171,
@@ -54,11 +54,11 @@
       "symbol": "AMAT"
     },
     "AMD": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:37:45.249186+00:00",
+      "last_attempt_at": "2026-09-07T20:35:29.331119+00:00",
       "last_snapshot_at": "2026-09-04T19:37:45.201618+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 204,
@@ -68,11 +68,11 @@
       "symbol": "AMD"
     },
     "AMZN": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Mega-cap and liquid leaders",
-      "last_attempt_at": "2026-09-04T19:37:48.429004+00:00",
+      "last_attempt_at": "2026-09-07T20:35:24.246431+00:00",
       "last_snapshot_at": "2026-09-04T19:37:48.410744+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 72,
@@ -82,11 +82,11 @@
       "symbol": "AMZN"
     },
     "ARKK": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Macro and alternative ETFs",
-      "last_attempt_at": "2026-09-04T19:39:41.597000+00:00",
+      "last_attempt_at": "2026-09-07T20:36:45.469769+00:00",
       "last_snapshot_at": "2026-09-04T19:39:41.582588+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 39,
@@ -96,11 +96,11 @@
       "symbol": "ARKK"
     },
     "ARM": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:39:46.053261+00:00",
+      "last_attempt_at": "2026-09-07T20:36:45.469769+00:00",
       "last_snapshot_at": "2026-09-04T19:39:46.041135+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 102,
@@ -110,11 +110,11 @@
       "symbol": "ARM"
     },
     "ASML": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:39:37.265151+00:00",
+      "last_attempt_at": "2026-09-07T20:36:38.317187+00:00",
       "last_snapshot_at": "2026-09-04T19:39:37.253966+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 249,
@@ -124,11 +124,11 @@
       "symbol": "ASML"
     },
     "AVGO": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:38:35.085297+00:00",
+      "last_attempt_at": "2026-09-07T20:36:01.296794+00:00",
       "last_snapshot_at": "2026-09-04T19:38:35.068766+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 134,
@@ -138,11 +138,11 @@
       "symbol": "AVGO"
     },
     "DIA": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Broad market ETFs",
-      "last_attempt_at": "2026-09-04T19:38:34.652858+00:00",
+      "last_attempt_at": "2026-09-07T20:36:08.309991+00:00",
       "last_snapshot_at": "2026-09-04T19:38:34.628772+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 202,
@@ -152,11 +152,11 @@
       "symbol": "DIA"
     },
     "GLD": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Macro and alternative ETFs",
-      "last_attempt_at": "2026-09-04T19:37:42.533257+00:00",
+      "last_attempt_at": "2026-09-07T20:35:29.331119+00:00",
       "last_snapshot_at": "2026-09-04T19:37:42.443512+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 313,
@@ -166,11 +166,11 @@
       "symbol": "GLD"
     },
     "GOOGL": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Mega-cap and liquid leaders",
-      "last_attempt_at": "2026-09-04T19:38:44.326892+00:00",
+      "last_attempt_at": "2026-09-07T20:36:01.296794+00:00",
       "last_snapshot_at": "2026-09-04T19:38:44.310807+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 117,
@@ -180,11 +180,11 @@
       "symbol": "GOOGL"
     },
     "HYG": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Macro and alternative ETFs",
-      "last_attempt_at": "2026-09-04T19:37:36.646985+00:00",
+      "last_attempt_at": "2026-09-07T20:35:24.246431+00:00",
       "last_snapshot_at": "2026-09-04T19:37:36.644500+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 2,
@@ -194,11 +194,11 @@
       "symbol": "HYG"
     },
     "IBIT": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Macro and alternative ETFs",
-      "last_attempt_at": "2026-09-04T19:39:34.637942+00:00",
+      "last_attempt_at": "2026-09-07T20:36:38.317187+00:00",
       "last_snapshot_at": "2026-09-04T19:39:34.620017+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 87,
@@ -208,11 +208,11 @@
       "symbol": "IBIT"
     },
     "INTC": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:37:41.143989+00:00",
+      "last_attempt_at": "2026-09-07T20:35:24.246431+00:00",
       "last_snapshot_at": "2026-09-04T19:37:41.116029+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 107,
@@ -222,11 +222,11 @@
       "symbol": "INTC"
     },
     "IWM": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Broad market ETFs",
-      "last_attempt_at": "2026-09-04T19:38:25.589850+00:00",
+      "last_attempt_at": "2026-09-07T20:36:01.296794+00:00",
       "last_snapshot_at": "2026-09-04T19:38:25.540503+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 150,
@@ -236,11 +236,11 @@
       "symbol": "IWM"
     },
     "KLAC": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:38:45.244933+00:00",
+      "last_attempt_at": "2026-09-07T20:36:08.309991+00:00",
       "last_snapshot_at": "2026-09-04T19:38:45.233770+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 91,
@@ -250,11 +250,11 @@
       "symbol": "KLAC"
     },
     "LRCX": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:38:37.244318+00:00",
+      "last_attempt_at": "2026-09-07T20:36:01.296794+00:00",
       "last_snapshot_at": "2026-09-04T19:38:37.235091+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 99,
@@ -264,11 +264,11 @@
       "symbol": "LRCX"
     },
     "MCHP": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:38:39.416471+00:00",
+      "last_attempt_at": "2026-09-07T20:36:01.296794+00:00",
       "last_snapshot_at": "2026-09-04T19:38:39.411565+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 63,
@@ -278,11 +278,11 @@
       "symbol": "MCHP"
     },
     "META": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Mega-cap and liquid leaders",
-      "last_attempt_at": "2026-09-04T19:37:56.015444+00:00",
+      "last_attempt_at": "2026-09-07T20:35:29.331119+00:00",
       "last_snapshot_at": "2026-09-04T19:37:55.961237+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 186,
@@ -292,11 +292,11 @@
       "symbol": "META"
     },
     "MPWR": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:39:47.944046+00:00",
+      "last_attempt_at": "2026-09-07T20:36:45.469769+00:00",
       "last_snapshot_at": "2026-09-04T19:39:47.941837+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 41,
@@ -306,11 +306,11 @@
       "symbol": "MPWR"
     },
     "MRVL": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:39:39.841564+00:00",
+      "last_attempt_at": "2026-09-07T20:36:38.317187+00:00",
       "last_snapshot_at": "2026-09-04T19:39:39.827006+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 127,
@@ -320,11 +320,11 @@
       "symbol": "MRVL"
     },
     "MSFT": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Mega-cap and liquid leaders",
-      "last_attempt_at": "2026-09-04T19:39:50.214280+00:00",
+      "last_attempt_at": "2026-09-07T20:36:45.469769+00:00",
       "last_snapshot_at": "2026-09-04T19:39:50.188033+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 102,
@@ -334,11 +334,11 @@
       "symbol": "MSFT"
     },
     "MU": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Memory and storage",
-      "last_attempt_at": "2026-09-04T19:37:46.333204+00:00",
+      "last_attempt_at": "2026-09-07T20:35:24.246431+00:00",
       "last_snapshot_at": "2026-09-04T19:37:46.270451+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 429,
@@ -348,11 +348,11 @@
       "symbol": "MU"
     },
     "NVDA": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:37:38.824145+00:00",
+      "last_attempt_at": "2026-09-07T20:35:24.246431+00:00",
       "last_snapshot_at": "2026-09-04T19:37:38.793853+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 89,
@@ -362,11 +362,11 @@
       "symbol": "NVDA"
     },
     "NXPI": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:39:41.773072+00:00",
+      "last_attempt_at": "2026-09-07T20:36:38.317187+00:00",
       "last_snapshot_at": "2026-09-04T19:39:41.770968+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 17,
@@ -376,11 +376,11 @@
       "symbol": "NXPI"
     },
     "ON": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:38:47.172359+00:00",
+      "last_attempt_at": "2026-09-07T20:36:08.309991+00:00",
       "last_snapshot_at": "2026-09-04T19:38:47.165905+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 66,
@@ -390,11 +390,11 @@
       "symbol": "ON"
     },
     "QCOM": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:39:43.708925+00:00",
+      "last_attempt_at": "2026-09-07T20:36:45.469769+00:00",
       "last_snapshot_at": "2026-09-04T19:39:43.699297+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 58,
@@ -404,11 +404,11 @@
       "symbol": "QCOM"
     },
     "QQQ": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Broad market ETFs",
-      "last_attempt_at": "2026-09-04T19:37:35.112131+00:00",
+      "last_attempt_at": "2026-09-07T20:35:29.331119+00:00",
       "last_snapshot_at": "2026-09-04T19:37:34.920155+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 327,
@@ -418,11 +418,11 @@
       "symbol": "QQQ"
     },
     "SLV": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Macro and alternative ETFs",
-      "last_attempt_at": "2026-09-04T19:38:32.598197+00:00",
+      "last_attempt_at": "2026-09-07T20:36:01.296794+00:00",
       "last_snapshot_at": "2026-09-04T19:38:32.573822+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 186,
@@ -432,11 +432,11 @@
       "symbol": "SLV"
     },
     "SMH": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Technology and semiconductor ETFs",
-      "last_attempt_at": "2026-09-04T19:39:27.803324+00:00",
+      "last_attempt_at": "2026-09-07T20:36:38.317187+00:00",
       "last_snapshot_at": "2026-09-04T19:39:27.782603+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 164,
@@ -446,11 +446,11 @@
       "symbol": "SMH"
     },
     "SNDK": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Memory and storage",
-      "last_attempt_at": "2026-09-04T19:37:53.326625+00:00",
+      "last_attempt_at": "2026-09-07T20:35:29.331119+00:00",
       "last_snapshot_at": "2026-09-04T19:37:53.266294+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 450,
@@ -460,11 +460,11 @@
       "symbol": "SNDK"
     },
     "SOXX": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Technology and semiconductor ETFs",
-      "last_attempt_at": "2026-09-04T19:39:34.927849+00:00",
+      "last_attempt_at": "2026-09-07T20:36:45.469769+00:00",
       "last_snapshot_at": "2026-09-04T19:39:34.911579+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 126,
@@ -474,11 +474,11 @@
       "symbol": "SOXX"
     },
     "SPY": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Broad market ETFs",
-      "last_attempt_at": "2026-09-04T19:37:30.655802+00:00",
+      "last_attempt_at": "2026-09-07T20:35:24.246431+00:00",
       "last_snapshot_at": "2026-09-04T19:37:30.468214+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 354,
@@ -488,11 +488,11 @@
       "symbol": "SPY"
     },
     "STX": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Memory and storage",
-      "last_attempt_at": "2026-09-04T19:38:49.609429+00:00",
+      "last_attempt_at": "2026-09-07T20:36:08.309991+00:00",
       "last_snapshot_at": "2026-09-04T19:38:49.593461+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 216,
@@ -502,11 +502,11 @@
       "symbol": "STX"
     },
     "TLT": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Macro and alternative ETFs",
-      "last_attempt_at": "2026-09-04T19:39:39.483540+00:00",
+      "last_attempt_at": "2026-09-07T20:36:45.469769+00:00",
       "last_snapshot_at": "2026-09-04T19:39:39.466914+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 57,
@@ -516,11 +516,11 @@
       "symbol": "TLT"
     },
     "TSLA": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Mega-cap and liquid leaders",
-      "last_attempt_at": "2026-09-04T19:38:51.702727+00:00",
+      "last_attempt_at": "2026-09-07T20:36:08.309991+00:00",
       "last_snapshot_at": "2026-09-04T19:38:51.664518+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 252,
@@ -530,11 +530,11 @@
       "symbol": "TSLA"
     },
     "TSM": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:38:43.186231+00:00",
+      "last_attempt_at": "2026-09-07T20:36:08.309991+00:00",
       "last_snapshot_at": "2026-09-04T19:38:43.161681+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 91,
@@ -544,11 +544,11 @@
       "symbol": "TSM"
     },
     "TXN": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Semiconductors",
-      "last_attempt_at": "2026-09-04T19:37:43.290555+00:00",
+      "last_attempt_at": "2026-09-07T20:35:24.246431+00:00",
       "last_snapshot_at": "2026-09-04T19:37:43.285131+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 43,
@@ -558,11 +558,11 @@
       "symbol": "TXN"
     },
     "USO": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Macro and alternative ETFs",
-      "last_attempt_at": "2026-09-04T19:38:41.065538+00:00",
+      "last_attempt_at": "2026-09-07T20:36:08.309991+00:00",
       "last_snapshot_at": "2026-09-04T19:38:41.039593+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 95,
@@ -572,11 +572,11 @@
       "symbol": "USO"
     },
     "VNQ": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Sector ETFs",
-      "last_attempt_at": "2026-09-04T19:38:38.337528+00:00",
+      "last_attempt_at": "2026-09-07T20:36:08.309991+00:00",
       "last_snapshot_at": "2026-09-04T19:38:38.335842+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 8,
@@ -586,11 +586,11 @@
       "symbol": "VNQ"
     },
     "WDC": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Memory and storage",
-      "last_attempt_at": "2026-09-04T19:38:41.970769+00:00",
+      "last_attempt_at": "2026-09-07T20:36:01.296794+00:00",
       "last_snapshot_at": "2026-09-04T19:38:41.957835+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 166,
@@ -600,11 +600,11 @@
       "symbol": "WDC"
     },
     "XBI": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Sector ETFs",
-      "last_attempt_at": "2026-09-04T19:39:32.401768+00:00",
+      "last_attempt_at": "2026-09-07T20:36:38.317187+00:00",
       "last_snapshot_at": "2026-09-04T19:39:32.395071+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 78,
@@ -614,11 +614,11 @@
       "symbol": "XBI"
     },
     "XLC": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Technology and semiconductor ETFs",
-      "last_attempt_at": "2026-09-04T19:37:37.199386+00:00",
+      "last_attempt_at": "2026-09-07T20:35:29.331119+00:00",
       "last_snapshot_at": "2026-09-04T19:37:37.196908+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 23,
@@ -628,11 +628,11 @@
       "symbol": "XLC"
     },
     "XLE": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Sector ETFs",
-      "last_attempt_at": "2026-09-04T19:38:36.765830+00:00",
+      "last_attempt_at": "2026-09-07T20:36:08.309991+00:00",
       "last_snapshot_at": "2026-09-04T19:38:36.751495+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 57,
@@ -642,11 +642,11 @@
       "symbol": "XLE"
     },
     "XLF": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Sector ETFs",
-      "last_attempt_at": "2026-09-04T19:38:27.962625+00:00",
+      "last_attempt_at": "2026-09-07T20:36:01.296794+00:00",
       "last_snapshot_at": "2026-09-04T19:38:27.952766+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 35,
@@ -656,11 +656,11 @@
       "symbol": "XLF"
     },
     "XLI": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Sector ETFs",
-      "last_attempt_at": "2026-09-04T19:39:37.024450+00:00",
+      "last_attempt_at": "2026-09-07T20:36:45.469769+00:00",
       "last_snapshot_at": "2026-09-04T19:39:37.016384+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 54,
@@ -670,11 +670,11 @@
       "symbol": "XLI"
     },
     "XLK": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Technology and semiconductor ETFs",
-      "last_attempt_at": "2026-09-04T19:37:32.731508+00:00",
+      "last_attempt_at": "2026-09-07T20:35:24.246431+00:00",
       "last_snapshot_at": "2026-09-04T19:37:32.719476+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 78,
@@ -684,11 +684,11 @@
       "symbol": "XLK"
     },
     "XLP": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Sector ETFs",
-      "last_attempt_at": "2026-09-04T19:37:39.431175+00:00",
+      "last_attempt_at": "2026-09-07T20:35:29.331119+00:00",
       "last_snapshot_at": "2026-09-04T19:37:39.421427+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 44,
@@ -698,11 +698,11 @@
       "symbol": "XLP"
     },
     "XLU": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Sector ETFs",
-      "last_attempt_at": "2026-09-04T19:38:30.192589+00:00",
+      "last_attempt_at": "2026-09-07T20:36:01.296794+00:00",
       "last_snapshot_at": "2026-09-04T19:38:30.189370+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 32,
@@ -712,11 +712,11 @@
       "symbol": "XLU"
     },
     "XLV": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Sector ETFs",
-      "last_attempt_at": "2026-09-04T19:39:30.083989+00:00",
+      "last_attempt_at": "2026-09-07T20:36:38.317187+00:00",
       "last_snapshot_at": "2026-09-04T19:39:30.079885+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 52,
@@ -726,11 +726,11 @@
       "symbol": "XLV"
     },
     "XLY": {
-      "attempt_message": "Validated regular-session snapshot saved.",
-      "attempt_status": "saved",
+      "attempt_message": "Refresh skipped outside 09:30-16:00 America/New_York on a weekday.",
+      "attempt_status": "outside_regular_session_window",
       "available": true,
       "category": "Sector ETFs",
-      "last_attempt_at": "2026-09-04T19:37:34.720407+00:00",
+      "last_attempt_at": "2026-09-07T20:35:24.246431+00:00",
       "last_snapshot_at": "2026-09-04T19:37:34.716212+00:00",
       "last_snapshot_market_date": "2026-09-04",
       "marketable_otm_calls": 41,
